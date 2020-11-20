@@ -1,0 +1,892 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>软件工程第五章 | 肤浅的羊</title><meta name="keywords" content="软件工程,期中复习"><meta name="author" content="肤浅的羊,1394266081@qq.com"><meta name="copyright" content="肤浅的羊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="软件工程复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程第五章">
+<meta property="og:url" content="https://blog.zhiqin.xyz/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/index.html">
+<meta property="og:site_name" content="肤浅的羊">
+<meta property="og:description" content="软件工程复习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img/2020/11/19/c02409766fa2a83112a3113209f01689.png">
+<meta property="article:published_time" content="2020-11-17T08:34:42.000Z">
+<meta property="article:modified_time" content="2020-11-19T16:53:38.439Z">
+<meta property="article:author" content="肤浅的羊">
+<meta property="article:tag" content="软件工程">
+<meta property="article:tag" content="期中复习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img/2020/11/19/c02409766fa2a83112a3113209f01689.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.zhiqin.xyz/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-20 00:53:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/custom.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/footer.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/plug1ns.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xingjiahui/modify/pace/themes/pink/pace-theme-flash.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/flink.css"><meta name="generator" content="Hexo 5.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://img.zhiqin.xyz/"><i class="fa-fw fas fa-camera-retro"></i><span> 图床</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/89c4ab1aafb965264e56a1550e9426fc.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">肤浅的羊</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="http://img.zhiqin.xyz/"><i class="fa-fw fas fa-camera-retro"></i><span> 图床</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">软件工程第五章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-17T08:34:42.000Z" title="发表于 2020-11-17 16:34:42">2020-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-19T16:53:38.439Z" title="更新于 2020-11-20 00:53:38">2020-11-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="5-总体设计"><a href="#5-总体设计" class="headerlink" title="5.总体设计"></a>5.总体设计</h1><h2 id="5-1设计过程"><a href="#5-1设计过程" class="headerlink" title="5.1设计过程"></a>5.1设计过程</h2><h3 id="设计阶段"><a href="#设计阶段" class="headerlink" title="设计阶段"></a>设计阶段</h3><ul>
+<li>从工程管理的角度，可以将软件设计分为概要设计阶段和详细设计阶段。</li>
+<li>从技术的角度，传统的结构化方法将软件设计划分为体系结构设计、数据设计、接口设计和过程设计4部分。</li>
+<li>面向对象方法则将软件设计划分为体系结构设计、类设计/数据设计、接口设计和构件级设计4部分。</li>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/368eaddd2b5038b4a78ca51dda1f861b.png"></li>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/ceb8eac59f58336726bb549af2b2a260.png"></li>
+</ul>
+<h3 id="基本任务"><a href="#基本任务" class="headerlink" title="基本任务"></a>基本任务</h3><ul>
+<li>（1）将软件系统划分成模块</li>
+<li>（2）决定每个模块的功能</li>
+<li>（3）决定模块的调用关系</li>
+<li>（4）决定模块的界面，即模块间传递的数据</li>
+</ul>
+<h3 id="总体设计的过程"><a href="#总体设计的过程" class="headerlink" title="总体设计的过程"></a>总体设计的过程</h3><ul>
+<li><p>系统设计阶段，确定系统的具体实现方案</p>
+<ul>
+<li>设想供选择的方案</li>
+<li>选取合理的方案</li>
+<li>推荐最佳方案</li>
+</ul>
+</li>
+<li><p>结构设计阶段，确定软件结构</p>
+<ul>
+<li>功能分解</li>
+<li>设计软件结构</li>
+<li>设计数据库</li>
+</ul>
+</li>
+</ul>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ul>
+<li><p>1．设想供选择的方案</p>
+<ul>
+<li>根据需求分析阶段得出的数据流图考虑各种可能的实现方案，力求从中选出最佳方案。即由逻辑模型——&gt;物理模型</li>
+</ul>
+</li>
+<li><p>2．选取合理的方案</p>
+<ul>
+<li><p>从前一步得到的一系列供选择的方案中选取若干个合理的方案。通常，选取的这些方案中至少应包括低成本、中成本和高成本的三种方案类型。对每个合理的方案分析员都应该准备下列4份资料：对每个合理方案要提供以下几方面资料：</p>
+<ul>
+<li>（1）系统流程图；</li>
+<li>（2）组成系统的物理元素清单 ；</li>
+<li>（3）成本／效益分析；</li>
+<li>（4）实现这个系统的进度计划。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>3．推荐最佳方案</p>
+<ul>
+<li>分析员从合理方案中选择一个最佳方案向用户推荐，并为推荐的方案制定详细的实现计划。对于分析员推荐的最佳方案，用户和有关专家应该认真审查。如果确认该方案确实符合用户的需要，并且在现有条件下完全能够实现，则应该提请使用部门负责人进一步审批。在使用部门负责人也接受了分析员所推荐的方案之后，方可进入总体设计过程的下一步工作，即结构设计阶段。</li>
+</ul>
+</li>
+<li><p>4．功能分解</p>
+<ul>
+<li><p>（1）结构设计 —— 总体设计阶段的任务</p>
+<ul>
+<li>结构设计确定程序由哪些模块组成，以及这些模块之间的关系；</li>
+</ul>
+</li>
+<li><p>（2）过程设计 —— 详细设计阶段的任务</p>
+<ul>
+<li>过程设计确定每个模块的处理过程。主要是按照用户的要求把复杂的功能从实现的角度进行分解，以方便后面软件结构的确定</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>5.设计软件结构</p>
+<ul>
+<li>通常程序中的一个模块完成一个适当的子功能。应该把模块组织成良好的层次系统。软件结构可以用层次图或结构图来描绘。</li>
+<li>如果数据流图已经细化到适当的层次，则可以直接从数据流图映射出软件结构，这就是面向数据流的设计方法。</li>
+</ul>
+</li>
+<li><ol start="6">
+<li>设计数据库</li>
+</ol>
+<ul>
+<li><p>数据库设计的主要工作是：</p>
+<ul>
+<li>1）设计数据库的表，表的结构就是数据的存储结构</li>
+<li>2）对这些表中的数据进行操作。</li>
+</ul>
+</li>
+<li><p>数据库设计的主要挑战是“高速度处理大容量的数据”</p>
+</li>
+<li><p>数据库设计的步骤:</p>
+<ul>
+<li>逻辑设计</li>
+<li>物理设计</li>
+<li>安全性设计</li>
+<li>性能优化</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>7．制定测试计划</p>
+<ul>
+<li>在软件开发的早期阶段提前考虑软件的测试计划是很有必要的。这样能促使软件设计人员在设计时注意到软件的测试问题，从而有利于提高软件的可测试性。 </li>
+</ul>
+</li>
+<li><p>8．书写文档</p>
+<ul>
+<li>（1）总体设计说明书（包括系统实现方案和软件模块结构）；</li>
+<li>（2）测试计划（包括测试策略、测试方案、预测的测试结果、测试进度计划等）；</li>
+<li>（3）用户手册（根据总体设计阶段的结果，编写的初步的用户操作手册）；</li>
+<li>（4）详细的实现计划；</li>
+<li>（5）数据库设计结果。</li>
+</ul>
+</li>
+<li><ol start="9">
+<li>审查和复审</li>
+</ol>
+<ul>
+<li>最后应该对总体设计的结果进行严格的技术审查，在技术审查通过之后再由使用部门的负责人从管理角度进行复审。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-2设计原理"><a href="#5-2设计原理" class="headerlink" title="5.2设计原理"></a>5.2设计原理</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><ul>
+<li><p>定义：</p>
+<ul>
+<li>模块是数据说明、可执行语句等程序对象的集合，它是单独命名的，可通过名字来进行访问。</li>
+</ul>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>一个模块具有输入和输出、功能、内部数据和程序代码等四个特性。</li>
+<li>输入输出和功能构成一个模块的外貌，即模块的外部特性。</li>
+<li>内部数据和程序代码是模块的内部特性。</li>
+</ul>
+</li>
+<li><p>模块化</p>
+<ul>
+<li>模块化就是把程序划分成若干个模块，每个模块完成一个子功能，把这些模块集成起来构成一个整体，可以完成指定的功能，满足用户的需求</li>
+<li>特点：先分解，然后再集成</li>
+<li>软件模块化设计的指导思想是分解、抽象、逐步求精、信息隐蔽和模块独立性。</li>
+</ul>
+</li>
+<li><p>为什么要模块化？</p>
+<ul>
+<li>模块化是为了使一个复杂的大型程序能被人的智力所管理，软件应该具备的惟一属性。</li>
+<li>如果一个大型程序仅由一个模块组成，它将很难被人所理解。</li>
+</ul>
+</li>
+<li><p>评价一种设计方法定义模块能力的五条标准：</p>
+<ul>
+<li>模块可分解性     </li>
+<li>模块可组装性 </li>
+<li>模块可理解性</li>
+<li>模块连续性 </li>
+<li>模块保护性</li>
+</ul>
+</li>
+<li><p>模块化的作用：</p>
+<ul>
+<li>采用模块化原理可以使软件结构清晰，不仅容易设计也容易阅读和理解。</li>
+<li>模块化使软件容易测试和调试，因而有助于提高软件的可靠性。</li>
+<li>模块化能够提高软件的可修改性。</li>
+<li>模块化也有助于软件开发工程的组织管理。</li>
+</ul>
+</li>
+</ul>
+<h3 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h3><ul>
+<li><p>定义</p>
+<ul>
+<li>现实世界中一定事物、状态或过程之间总存在着某些相似的方面(共性)。把这些相似的方面集中和概括起来，暂时忽略它们之间的差异，这就是抽象。</li>
+<li>抽象就是抽出事物本质特性而暂时不考虑细节。</li>
+</ul>
+</li>
+<li><p>一般抽象过程：</p>
+<ul>
+<li>处理复杂系统的惟一有效的方法是用层次的方式构造和分析它。</li>
+<li>一个复杂的动态系统首先可以用一些高级的抽象概念构造和理解，这些高级概念又可以用一些较低级的概念构造和理解，如此进行下去，直至最低层次的具体元素。 </li>
+<li>例：过程抽象、数据抽象</li>
+</ul>
+</li>
+<li><p>软件工程抽象过程：</p>
+<ul>
+<li>软件工程过程的每一步都是对软件解法的抽象层次的一次精化。</li>
+<li>在可行性研究阶段，软件作为系统的一个完整部件</li>
+<li>在需求分析阶段，软件解法是使用在问题环境内熟悉的方式描述</li>
+<li>进入总体设计向详细设计过渡阶段，抽象的程度将随之减少</li>
+<li>最后当源程序被写出以后，抽象就达到最低层。</li>
+</ul>
+</li>
+</ul>
+<h3 id="逐步求精"><a href="#逐步求精" class="headerlink" title="逐步求精"></a>逐步求精</h3><ul>
+<li><p>介绍：</p>
+<ul>
+<li>为了能集中精力解决主要问题而尽量推迟对问题细节的考虑。逐步求精是人类解决复杂问题时采用的基本方法，也是许多软件工程技术的基础。</li>
+</ul>
+</li>
+<li><p>Miller法则：</p>
+<ul>
+<li>一个人在任何时候都只能把注意力集中在（7±2）个知识块上。</li>
+</ul>
+</li>
+<li><p>抽象与求精的关系</p>
+<ul>
+<li>抽象与求精是一对互补的概念。抽象使得设计者能够说明过程和数据，同时却忽略低层细节。求精则帮助设计者在设计过程中逐步揭示出低层细节。</li>
+</ul>
+</li>
+<li><p>逐步求精的作用：</p>
+<ul>
+<li>它能帮助软件工程师把精力集中在与当前开发阶段最相关的那些方面上，而忽略那些对整体解决方案来说虽然是必要的，然而目前还不需要考虑的细节。</li>
+<li>逐步求精方法确保每个问题都将被解决，而且每个问题都将在适当的时候被解决，但是，在任何时候一个人都不需要同时处理7个以上知识块。</li>
+</ul>
+</li>
+</ul>
+<h3 id="信息隐藏和局部化"><a href="#信息隐藏和局部化" class="headerlink" title="信息隐藏和局部化"></a>信息隐藏和局部化</h3><ul>
+<li><p>信息隐藏原理：</p>
+<ul>
+<li>应该这样设计和确定模块，使得一个模块内包含的信息(过程和数据)对于不需要这些信息的模块来说，是不能访问的。</li>
+</ul>
+</li>
+<li><p>局部化：</p>
+<ul>
+<li>局部化的概念和信息隐藏概念是密切相关的。所谓局部化是指把一些关系密切的软件元素物理地放得彼此靠近。显然，局部化有助于实现信息隐藏。</li>
+</ul>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>“隐藏”意味着有效的模块化可以通过定义一组独立的模块而实现，这些独立的模块彼此间仅仅交换那些为了完成系统功能而必须交换的信息。</li>
+<li>使用信息隐藏原理作为模块化系统设计的标准就会带来极大好处。因为绝大多数数据和过程对于软件的其他部分而言是隐藏的，在修改期间由于疏忽而引入的错误就很少可能传播到软件的其他部分。</li>
+</ul>
+</li>
+</ul>
+<h3 id="模块独立"><a href="#模块独立" class="headerlink" title="模块独立"></a>模块独立</h3><ul>
+<li><p>定义：</p>
+<ul>
+<li>模块独立的概念是模块化、抽象、信息隐藏和局部化概念的直接结果。</li>
+<li>希望这样设计软件结构，使得每个模块完成一个相对独立的特定子功能，并且和其他模块之间的关系很简单。 </li>
+</ul>
+</li>
+<li><p>模块独立的重要性：</p>
+<ul>
+<li>有效的模块化(即具有独立的模块)的软件比较容易开发出来。这是由于能够分割功能而且接口可以简化，当许多人分工合作开发同一个软件时，这个优点尤其重要。</li>
+<li>独立的模块比较容易测试和维护。这是因为相对说来，修改设计和程序需要的工作量比较小，错误传播范围小，需要扩充功能时能够“插入”模块。</li>
+</ul>
+</li>
+<li><p>模块独立程度的两个定性标准度量：</p>
+<ul>
+<li>耦合衡量不同模块彼此间互相依赖(连接)的紧密程度。耦合要低，即每个模块和其他模块之间的关系要简单；</li>
+<li>内聚衡量一个模块内部各个元素彼此结合的紧密程度。内聚要高，每个模块完成一个相对独立的特定子功能。</li>
+<li>模块独立性愈高，则块内联系越强（内聚性强/高），块间联系越弱（耦合度弱/低）。</li>
+</ul>
+</li>
+<li><p>耦合——块间联系</p>
+<ul>
+<li>耦合：是对一个软件结构内不同模块之间互连程度的度量。</li>
+<li>要求：在软件设计中应该追求尽可能松散耦合的系统。</li>
+<li>可以研究、测试或维护任何一个模块，而不需要对系统的其他模块有很多了解；</li>
+<li>模块间联系简单，发生在一处的错误传播到整个系统的可能性就很小；</li>
+<li>模块间的耦合程度强烈影响系统的可理解性、可测试性、可靠性和可维护性。</li>
+</ul>
+</li>
+<li><p>耦合程度的度量：</p>
+<ul>
+<li><p>(1) 非直接耦合/完全独立</p>
+<ul>
+<li>如果两个模块中的每一个都能独立地工作而不需要另一个模块的存在，那么它们完全独立。</li>
+<li>在一个软件系统中不可能所有模块之间都没有任何连接。</li>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/cd690936362cc449c8c172ff8af81366.png"></li>
+</ul>
+</li>
+<li><p>(2) 数据耦合</p>
+<ul>
+<li><p>如果两个模块彼此间通过参数交换信息，而且交换的信息仅仅是数据，那么这种耦合称为数据耦合。</p>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/f7193282ed9c4e9463a0424b4f6309b6.png"></p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>系统中至少必须存在这种耦合。一般说来，一个系统内可以只包含数据耦合。</li>
+<li>数据耦合是理想的目标。</li>
+<li>维护更容易，对一个模块的修改不会是另一个模块产生退化错误。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(3) 控制耦合</p>
+<ul>
+<li><p>如果两个模块彼此间传递的信息中有控制信息，这种耦合称为控制耦合。</p>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/5228fea9d02ddf5b08cfb8eda4983d46.png"></p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>控制耦合往往是多余的，把模块适当分解之后通常可以用数据耦合代替它。</li>
+<li>被调用的模块需知道调用模块的内部结构和逻辑，降低了重用的可能性 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(4) 特征耦合</p>
+<ul>
+<li><p>当把整个数据结构作为参数传递而被调用的模块只需要使用其中一部分数据元素时，就出现了特征耦合。</p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>被调用的模块可使用的数据多于它确实需要的数据，这将导致对数据的访问失去控制，从而给计算机犯罪提供了机会。</li>
+<li>无论何时把指针作为参数进行传递，都应该仔细检查该耦合。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(5) 公共环境耦合</p>
+<ul>
+<li><p>当两个或多个模块通过一个公共数据环境相互作用时，它们之间的耦合称为公共环境耦合。公共环境可以是全程变量、共享的通信区、内存的公共覆盖区、任何存储介质上的文件、物理设备等等。</p>
+</li>
+<li><p>公共环境耦合的类型：</p>
+<ul>
+<li><p>一个模块往公共环境送数据，另一个模块从公共环境取数据。数据耦合的一种形式，是比较松散的耦合。</p>
+</li>
+<li><p>两个模块都既往公共环境送数据又从里面取数据，这种耦合比较紧密，介于数据耦合和控制耦合之间。</p>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/858abea9497815abf58cbcaa58e0a037.png"></p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>与结构化编程矛盾，生成的代码完全不可读。</li>
+<li>如果在一个模块中对一个全局变量的声明进行修改，必须修改能够访问该全局变量的每一个模块。</li>
+<li>公共环境耦合的模块难于重用，必须提供一个全局变量的清单。</li>
+<li>即使模块本身不改变，它和产品中其他模块之间公共环境耦合的实例数也会变化非常大。</li>
+<li>潜在危险很大。模块暴露出必需要更多的数据，难以控制数据存取，而且会导致计算机犯罪。</li>
+<li>有些情况下公共环境耦合更好。 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(6) 内容耦合</p>
+<ul>
+<li><p>最高程度的耦合是内容耦合。如果出现下列情况之一，两个模块间就发生了内容耦合：</p>
+<ul>
+<li>一个模块访问另一个模块的内部数据；</li>
+<li>一个模块不通过正常入口转到另一个模块的内部；</li>
+<li>两个模块有一部分程序代码重叠；</li>
+<li>一个模块有多个入口。 </li>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/1a8d73a9ea1d48b0b04ceb838f88580c.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设计原则：</p>
+<ul>
+<li>尽量使用数据耦合，</li>
+<li>少用控制耦合和特征耦合，</li>
+<li>限制公共环境耦合的范围。</li>
+<li>完全不用内容耦合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内聚——块内联系</p>
+<ul>
+<li>内聚：标志一个模块内各个元素彼此结合的紧密程度，它是信息隐藏和局部化概念的自然扩展。简单地说，理想内聚的模块只做一件事情。</li>
+<li>要求：设计时应该力求做到高内聚，通常中等程度的内聚也是可以采用的，而且效果和高内聚相差不多；但是，低内聚不要使用。</li>
+<li>内聚和耦合是密切相关的，模块内的高内聚往往意味着模块间的松耦合。实践表明内聚更重要，应该把更多注意力集中到提高模块的内聚程度上。 </li>
+</ul>
+</li>
+<li><p>内聚程度的度量：</p>
+<ul>
+<li><p>(1) 偶然内聚</p>
+<ul>
+<li><p>如果一个模块完成一组任务，这些任务彼此间即使有关系，关系也是很松散的，就叫做偶然内聚。</p>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/eedfd07976671a946502416f4349c0ee.png"></p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>模块内各元素之间没有实质性联系，很可能在一种应用场合需要修改这个模块，在另一种应用场合又不允许这种修改，从而陷入困境；</li>
+<li>可理解性差，可维护性产生退化；</li>
+<li>模块是不可重用的。</li>
+</ul>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li>将模块分成更小的模块，每个小模块执行一个操作。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(2) 逻辑内聚</p>
+<ul>
+<li><p>如果一个模块完成的任务在逻辑上属于相同或相似的一类，则称为逻辑内聚。</p>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/814e1d65fb5b5fa7d84f50176883faff.png"></p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>接口难以理解，造成整体上不易理解；</li>
+<li>完成多个操作的代码互相纠缠在一起，即使局部功能的修改有时也会影响全局，导致严重的维护问题；</li>
+<li>难以重用。</li>
+</ul>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li>模块分解。 </li>
+</ul>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/409ca6a009821cf40d8757d5a963bae5.png"></p>
+</li>
+</ul>
+</li>
+<li><p>(3) 时间内聚</p>
+<ul>
+<li><p>如果一个模块包含的任务必须在同一段时间内执行，就叫时间内聚。</p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>时间关系在一定程度上反映了程序某些实质，所以时间内聚比逻辑内聚好一些。</li>
+<li>模块内操作之间的关系很弱，与其他模块的操作却有很强的关联。</li>
+<li>时间内聚的模块不太可能重用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(4) 过程内聚</p>
+<ul>
+<li><p>如果一个模块内的处理元素是相关的，而且必须以特定次序执行，则称为过程内聚。</p>
+</li>
+<li><p>使用程序流程图作为工具设计软件时，常常通过研究流程图确定模块的划分，这样得到的往往是过程内聚的模块。 </p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>比时间内聚好，至少操作之间是过程关联的。</li>
+<li>仍是弱连接，不太可能重用模块。</li>
+</ul>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li>分割为单独的模块，每个模块执行一个操作。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(5) 通信内聚</p>
+<ul>
+<li><p>如果模块中所有元素都使用同一个输入数据和(或)产生同一个输出数据，则称为通信内聚。即在同一个数据结构上操作。</p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>模块中各操作紧密相连，比过程内聚更好。</li>
+<li>不能重用。</li>
+</ul>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li>分成多个模块，每个模块执行一个操作。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(6) 顺序内聚</p>
+<ul>
+<li><p>如果一个模块内的处理元素和同一个功能密切相关，而且这些处理必须顺序执行，则称为顺序内聚。</p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>根据数据流图划分模块时，通常得到顺序内聚的模块，这种模块彼此间的连接往往比较简单。 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>(7) 功能内聚</p>
+<ul>
+<li><p>如果模块内所有处理元素属于一个整体，完成一个单一的功能，则称为功能内聚。功能内聚是最高程度的内聚。</p>
+</li>
+<li><p>评价：</p>
+<ul>
+<li>模块可重用，应尽可能重用；</li>
+<li>可隔离错误，维护更容易；</li>
+<li>扩充产品功能时更容易。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>七种内聚的优劣评分结果：</p>
+<ul>
+<li><p>高内聚：</p>
+<ul>
+<li>功能内聚     10分</li>
+<li>顺序内聚        9分        </li>
+</ul>
+</li>
+<li><p>中内聚：</p>
+<ul>
+<li>通信内聚          7分    </li>
+<li>过程内聚          5分</li>
+</ul>
+</li>
+<li><p>低内聚：</p>
+<ul>
+<li>时间内聚        3分</li>
+<li>逻辑内聚        1分</li>
+<li>偶然内聚        0分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>总结：</p>
+<ul>
+<li>设计时力争做到高内聚，并且能够辨认出低内聚的模块。对于一个模块而言，模块自身的内聚越强，模块间的耦合就越小，模块所具有的独立性就越好，可以说高内聚低耦合是我们进行软件设计的一贯原则。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-3启发规则"><a href="#5-3启发规则" class="headerlink" title="5.3启发规则"></a>5.3启发规则</h2><h3 id="1-改进软件结构提高模块独立性"><a href="#1-改进软件结构提高模块独立性" class="headerlink" title="1. 改进软件结构提高模块独立性"></a>1. 改进软件结构提高模块独立性</h3><ul>
+<li><p>通过模块分解或合并，降低耦合提高内聚。</p>
+<ul>
+<li>例如，多个模块公有的一个子功能可以独立成一个模块，由这些模块调用；有时可以通过分解或合并模块以减少控制信息的传递及对全程数据的引用，并且降低接口的复杂程度。</li>
+</ul>
+</li>
+<li><p>两个方面：</p>
+<ul>
+<li><p>模块功能完善化。一个完整的模块包含：</p>
+<ul>
+<li>执行规定的功能的部分</li>
+<li>出错处理的部分</li>
+<li>返回一个“结束标志”</li>
+</ul>
+</li>
+<li><p>消除重复功能，改善软件结构。</p>
+<ul>
+<li><p>完全相似</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/0a77666bf80fa10165553c27daea43e0.png"></li>
+</ul>
+</li>
+<li><p>局部相似</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/cebb572ff17fa518a9667e91373929a4.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-模块规模应该适中"><a href="#2-模块规模应该适中" class="headerlink" title="2. 模块规模应该适中"></a>2. 模块规模应该适中</h3><ul>
+<li>经验表明，一个模块的规模不应过大，最好能写在一页纸内。通常规定50~100行语句，最多不超过500行。数字只能作为参考，根本问题是要保证模块的独立性。</li>
+<li>过大的模块往往是由于分解不充分，但是进一步分解必须符合问题结构，一般说来，分解后不应该降低模块独立性。</li>
+<li>过小的模块开销大于有效操作，而且模块数目过多将使系统接口复杂。</li>
+</ul>
+<h3 id="3-深度、宽度、扇出和扇入应适中"><a href="#3-深度、宽度、扇出和扇入应适中" class="headerlink" title="3. 深度、宽度、扇出和扇入应适中"></a>3. 深度、宽度、扇出和扇入应适中</h3><ul>
+<li>深度: 表示软件结构中控制的层数，它往往能粗略地标志一个系统的大小和复杂程度。深度和程序长度之间应该有粗略的对应关系。</li>
+<li>宽度: 表示软件结构中控制的总跨度。即同一个层次上的模块总数的最大值，宽度越大系统越复杂。</li>
+<li>扇出：表示一个模块直接控制(调用)的模块数目。扇出为3－4，上限扇出为5－9。</li>
+<li>扇入：表示有多个上级模块直接调用该模块，扇入越大则共享该模块的上级模块数目越多。</li>
+<li>软件结构一般要求顶层扇出较大，中层扇出较少，底层扇入较大为好。</li>
+</ul>
+<h3 id="4-模块的作用域应该在控制域之内"><a href="#4-模块的作用域应该在控制域之内" class="headerlink" title="4. 模块的作用域应该在控制域之内"></a>4. 模块的作用域应该在控制域之内</h3><ul>
+<li><p>模块的作用域是指受该模块内一个判定影响的所有模块的集合。</p>
+</li>
+<li><p>模块的控制域是包括自己以及所有下属模块的集合。</p>
+</li>
+<li><p>在一个设计得很好的系统中，所有受判定影响的模块应该都从属于做出判定的那个模块，最好局限于做出判定的那个模块本身及它的直属下级模块。</p>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/716dbec7703b75bcd3c3335882982256.png"></p>
+<ul>
+<li>第一，这种结构使得软件难于理解</li>
+<li>第二，为了能影响到G，需要在A中设置标记，并把标记传递给M（A和G的公共上级），再由M传递给G。这个标记是控制信息不是数据，将使得模块间出现控制耦合。</li>
+</ul>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li><p>使判定上移。把模块A中的判定移到模块M中；</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/4953208d6e2d01f6bbe8034de5550e82.png"></li>
+</ul>
+</li>
+<li><p>受判定影响的模块下移。把模块G移到模块A下面，作为他的下级模块。</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/93b74b10dfb130df5e2e385c7a7cca99.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-力争降低模块接口的复杂程度"><a href="#5-力争降低模块接口的复杂程度" class="headerlink" title="5. 力争降低模块接口的复杂程度"></a>5. 力争降低模块接口的复杂程度</h3><ul>
+<li>模块接口复杂是软件发生错误的一个主要原因。应该仔细设计模块接口，使得信息传递简单并且和模块的功能一致。</li>
+</ul>
+<h3 id="6-设计单入口单出口的模块"><a href="#6-设计单入口单出口的模块" class="headerlink" title="6. 设计单入口单出口的模块"></a>6. 设计单入口单出口的模块</h3><ul>
+<li>这条启发式规则警告软件工程师不要使模块间出现内容耦合。当从顶部进入模块并且从底部退出来时，软件是比较容易理解的，因此也是比较容易维护的。</li>
+</ul>
+<h3 id="7-模块功能应该可以预测"><a href="#7-模块功能应该可以预测" class="headerlink" title="7. 模块功能应该可以预测"></a>7. 模块功能应该可以预测</h3><ul>
+<li>模块的功能应该能够预测，但也要防止模块功能过分局限。</li>
+<li>功能可预测：如果一个模块可以当做一个黑盒子，只要输入的数据相同就产生同样的输出，这个模块的功能就是可以预测的。</li>
+</ul>
+<h3 id="8-组装软件要根据设计的约束和移植的需要"><a href="#8-组装软件要根据设计的约束和移植的需要" class="headerlink" title="8.组装软件要根据设计的约束和移植的需要"></a>8.组装软件要根据设计的约束和移植的需要</h3><h2 id="5-4描绘软件结构的图形工具"><a href="#5-4描绘软件结构的图形工具" class="headerlink" title="5.4描绘软件结构的图形工具"></a>5.4描绘软件结构的图形工具</h2><h3 id="1-层次图"><a href="#1-层次图" class="headerlink" title="1.层次图"></a>1.层次图</h3><ul>
+<li><p>层次图用来描绘软件的层次结构。很适于在自顶向下设计软件的过程中使用。</p>
+</li>
+<li><p>层次图中的每个方框代表一个模块，方框间的连线表示调用关系，不同于层次方框图那样表示组成关系。</p>
+</li>
+<li><p>层次图和层次方框图的区别：</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/5538686b5bc943247c54f088d6a4dbbc.png"></li>
+</ul>
+</li>
+<li><p>例：</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/77e65323f78594c3d6bb1e86fee21784.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-HIPO图"><a href="#2-HIPO图" class="headerlink" title="2.HIPO图"></a>2.HIPO图</h3><ul>
+<li>HIPO图是美国IBM公司发明的“层次图+输入/处理/输出图”的英文缩写。</li>
+<li>为了能使HIPO图具有可追踪性，在H图(层次图)里除了最顶层的方框之外，每个方框都加了编号。</li>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/b89d912fada504dff54ec25eea858387.png"></li>
+</ul>
+<h3 id="3-结构图"><a href="#3-结构图" class="headerlink" title="3.结构图"></a>3.结构图</h3><ul>
+<li><p>结构图描述了程序的模块结构，表示了一个系统的层次分解关系，反映了块间联系和块内联系等特征及控制信息的传递关系。</p>
+</li>
+<li><p>基本图形符号：</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/c264da28bfcd6b94b515e7c11254eb57.png"></li>
+</ul>
+</li>
+<li><p>选择调用：判定为真时调用A，为假时调用B。</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/7393138ab4cb62b7e723ae9f005dcea9.png"></li>
+</ul>
+</li>
+<li><p>循环调用：模块M循环调用模块A、B、C。</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/c8e53e1fdcc2d7c69c2f0287c8c397fc.png"></li>
+</ul>
+</li>
+<li><p>例子</p>
+<ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/44a3d0947fdc8eb0f3cb6ab71791ff6a.png"></li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>层次图和结构图并不严格表示模块的调用次序，多数人习惯按调用次序从左到右画模块；</li>
+<li>层次图和结构图并不指明何时调用下层模块；</li>
+<li>层次图和结构图只表明一个模块调用那些模块，没有表示模块内还有没有其他成分；</li>
+<li>通常用层次图作为描绘软件结构的文档；</li>
+<li>由层次图导出结构图的过程，可以作为检查设计正确性和评价模块独立性的好方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-5面向数据流的设计方法（SD方法）"><a href="#5-5面向数据流的设计方法（SD方法）" class="headerlink" title="5.5面向数据流的设计方法（SD方法）"></a>5.5面向数据流的设计方法（SD方法）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><p>面向数据流的设计方法把信息流映射成软件结构，信息流的类型决定了映射的方法。</p>
+</li>
+<li><p>变换流</p>
+<ul>
+<li>信息沿输入通路进入系统，同时由外部形式变换成内部形式，进入系统的信息通过变换中心，经加工处理以后再沿输出通路变换成外部形式离开软件系统。</li>
+<li>变换型结构的数据流图基本上呈线性形状</li>
+<li>明显地分为输入、变换（或加工）和输出三部分</li>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/edc698725d186c764731f3103838ef50.png"></li>
+</ul>
+</li>
+<li><p>事务流</p>
+<ul>
+<li><p>系统的数据流图呈辐射状</p>
+</li>
+<li><p>数据沿输入通路到达一个处理T，T根据输入数据的类型，在若干个动作序列中选出一个来执行。处理T称为事务中心，它完成下述任务：</p>
+<ul>
+<li>接收输入数据；</li>
+<li>分析每个事务以确定它的类型；</li>
+<li>根据事务类型选取一条活动通路。</li>
+</ul>
+</li>
+<li><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/77f0c879dbf7cb9b363e1afd03ed0905.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="变换分析"><a href="#变换分析" class="headerlink" title="变换分析"></a>变换分析</h3><ul>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/05fa843f556433f25aef387a30735859.png"></li>
+<li>第1步 复查基本系统模型</li>
+<li>第2步 复查并精化数据流图</li>
+<li>第3步 确定数据流的类型</li>
+<li>第4步 确定输入流和输出流边界，从而孤立出变换中心</li>
+<li>第5步 把数据流图映射成系统模块结构，即设计系统的上层模块结构</li>
+<li>第6步  基于数据流图逐步分解高层模块结构，设计出下层模块</li>
+<li>第7步  根据模块独立性原理，精化模块结构</li>
+<li>第8步  描述模块接口信息，给出进出模块的数据信息</li>
+</ul>
+<h3 id="事务分析"><a href="#事务分析" class="headerlink" title="事务分析"></a>事务分析</h3><ul>
+<li><p>虽然在任何情况下都可以使用变换分析方法设计软件结构，但是在数据流具有明显的事务特点时，也就是有一个明显的“发射中心”(事务中心)时，还是以采用事务分析方法为宜。</p>
+</li>
+<li><p>事务分析的设计步骤和变换分析的设计步骤大部分相同或类似，主要差别仅在于由数据流图到软件结构的映射方法不同：</p>
+<ul>
+<li>由事务流映射成的软件结构包括一个接收分支和一个发送分支；</li>
+<li>映射出接收分支结构的方法和变换分析映射出输入结构的方法很相像，即从事务中心的边界开始，把沿着接收流通路的处理映射成模块；</li>
+<li>发送分支的结构包含一个调度模块，它控制下层的所有活动模块；然后把数据流图中的每个活动流通路映射成与它的流特征相对应的结构。 </li>
+<li><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/17/3fb92a6a33043b28752c52efc720414e.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="设计优化"><a href="#设计优化" class="headerlink" title="设计优化"></a>设计优化</h3><ul>
+<li>(1) 在不考虑时间因素的前提下开发并精化软件结构</li>
+<li>(2) 在详细设计阶段选出最耗费时间的那些模块，仔细地设计它们的处理过程，以求提高效率</li>
+<li>(3) 使用高级程序设计语言编写程序</li>
+<li>(4) 在软件中孤立出那些大量占用处理机资源的模块</li>
+<li>(5) 必要时重新设计或用依赖于机器的语言重写上述大量占用资源的模块的代码，以求提高效率</li>
+<li>一句格言：“先使它能工作，然后再使它快起来。”</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:1394266081@qq.com">肤浅的羊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.zhiqin.xyz/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/">https://blog.zhiqin.xyz/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.zhiqin.xyz" target="_blank">肤浅的羊</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a><a class="post-meta__tags" href="/tags/%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">期中复习</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img/2020/11/19/c02409766fa2a83112a3113209f01689.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/11/20/hello-world/"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/09/08/717c4b08fcbacc3507abdf3bf6e31687.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World</div></div></a></div><div class="next-post pull-right"><a href="/2020/11/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/15/169f9b425269503a068743d5a0e2511f.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软件工程第三章</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/11/14/软件工程第一章/" title="软件工程第一章"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/14s/107ab635d1a7c8b2dee6ed63f0927527.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-14</div><div class="title">软件工程第一章</div></div></a></div><div><a href="/2020/11/15/软件工程第三章/" title="软件工程第三章"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/15/169f9b425269503a068743d5a0e2511f.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-15</div><div class="title">软件工程第三章</div></div></a></div><div><a href="/2020/11/14/软件工程第二章/" title="软件工程第二章"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/08/28/353e81fa38e6354138f58b369b56a728.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-14</div><div class="title">软件工程第二章</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">肤浅的羊</div><div class="author-info__description">你好鸭，欢迎来到我的博客。我是肤浅的羊，一个喜欢编程和健身的小菜鸡。有任何疑问可以到“留言板”提问！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1394266081&amp;site=qq&amp;menu=yes"><i class="fab fa-qq"></i><span>联系博主</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hnkjdaxzzq" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1394266081@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">博客还在施工中，有任何问题直接联系博主. <img src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/09/08/a4f7efce6aadd9d994b967a1f2e19ef0.png"></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">5.总体设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">5.1设计过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">设计阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.1.2.</span> <span class="toc-text">基本任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">总体设计的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">5.2设计原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97"><span class="toc-number">1.2.1.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1"><span class="toc-number">1.2.2.</span> <span class="toc-text">抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%90%E6%AD%A5%E6%B1%82%E7%B2%BE"><span class="toc-number">1.2.3.</span> <span class="toc-text">逐步求精</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8C%96"><span class="toc-number">1.2.4.</span> <span class="toc-text">信息隐藏和局部化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%8B%AC%E7%AB%8B"><span class="toc-number">1.2.5.</span> <span class="toc-text">模块独立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3%E5%90%AF%E5%8F%91%E8%A7%84%E5%88%99"><span class="toc-number">1.3.</span> <span class="toc-text">5.3启发规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%94%B9%E8%BF%9B%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E6%8F%90%E9%AB%98%E6%A8%A1%E5%9D%97%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 改进软件结构提高模块独立性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A8%A1%E5%BA%94%E8%AF%A5%E9%80%82%E4%B8%AD"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 模块规模应该适中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%B1%E5%BA%A6%E3%80%81%E5%AE%BD%E5%BA%A6%E3%80%81%E6%89%87%E5%87%BA%E5%92%8C%E6%89%87%E5%85%A5%E5%BA%94%E9%80%82%E4%B8%AD"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 深度、宽度、扇出和扇入应适中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%BA%94%E8%AF%A5%E5%9C%A8%E6%8E%A7%E5%88%B6%E5%9F%9F%E4%B9%8B%E5%86%85"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 模块的作用域应该在控制域之内</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%8A%9B%E4%BA%89%E9%99%8D%E4%BD%8E%E6%A8%A1%E5%9D%97%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%A4%8D%E6%9D%82%E7%A8%8B%E5%BA%A6"><span class="toc-number">1.3.5.</span> <span class="toc-text">5. 力争降低模块接口的复杂程度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%BE%E8%AE%A1%E5%8D%95%E5%85%A5%E5%8F%A3%E5%8D%95%E5%87%BA%E5%8F%A3%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="toc-number">1.3.6.</span> <span class="toc-text">6. 设计单入口单出口的模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%A8%A1%E5%9D%97%E5%8A%9F%E8%83%BD%E5%BA%94%E8%AF%A5%E5%8F%AF%E4%BB%A5%E9%A2%84%E6%B5%8B"><span class="toc-number">1.3.7.</span> <span class="toc-text">7. 模块功能应该可以预测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E7%BB%84%E8%A3%85%E8%BD%AF%E4%BB%B6%E8%A6%81%E6%A0%B9%E6%8D%AE%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BA%A6%E6%9D%9F%E5%92%8C%E7%A7%BB%E6%A4%8D%E7%9A%84%E9%9C%80%E8%A6%81"><span class="toc-number">1.3.8.</span> <span class="toc-text">8.组装软件要根据设计的约束和移植的需要</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4%E6%8F%8F%E7%BB%98%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84%E7%9A%84%E5%9B%BE%E5%BD%A2%E5%B7%A5%E5%85%B7"><span class="toc-number">1.4.</span> <span class="toc-text">5.4描绘软件结构的图形工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B1%82%E6%AC%A1%E5%9B%BE"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.层次图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HIPO%E5%9B%BE"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.HIPO图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%93%E6%9E%84%E5%9B%BE"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.结构图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5%E9%9D%A2%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%EF%BC%88SD%E6%96%B9%E6%B3%95%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">5.5面向数据流的设计方法（SD方法）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.5.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E6%8D%A2%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.</span> <span class="toc-text">变换分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%88%86%E6%9E%90"><span class="toc-number">1.5.3.</span> <span class="toc-text">事务分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E4%BC%98%E5%8C%96"><span class="toc-number">1.5.4.</span> <span class="toc-text">设计优化</span></a></li></ol></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/20/hello-world/" title="Hello World"><img data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/09/08/717c4b08fcbacc3507abdf3bf6e31687.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2020/11/20/hello-world/" title="Hello World">Hello World</a><time datetime="2020-11-19T16:10:06.827Z" title="发表于 2020-11-20 00:10:06">2020-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/" title="软件工程第五章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img/2020/11/19/c02409766fa2a83112a3113209f01689.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第五章"/></a><div class="content"><a class="title" href="/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/" title="软件工程第五章">软件工程第五章</a><time datetime="2020-11-17T08:34:42.000Z" title="发表于 2020-11-17 16:34:42">2020-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/" title="软件工程第三章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/15/169f9b425269503a068743d5a0e2511f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第三章"/></a><div class="content"><a class="title" href="/2020/11/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/" title="软件工程第三章">软件工程第三章</a><time datetime="2020-11-15T06:23:21.000Z" title="发表于 2020-11-15 14:23:21">2020-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0/" title="软件工程第二章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/08/28/353e81fa38e6354138f58b369b56a728.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第二章"/></a><div class="content"><a class="title" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0/" title="软件工程第二章">软件工程第二章</a><time datetime="2020-11-14T10:02:08.000Z" title="发表于 2020-11-14 18:02:08">2020-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="软件工程第一章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/14s/107ab635d1a7c8b2dee6ed63f0927527.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第一章"/></a><div class="content"><a class="title" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="软件工程第一章">软件工程第一章</a><time datetime="2020-11-14T02:04:07.000Z" title="发表于 2020-11-14 10:04:07">2020-11-14</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By 肤浅的羊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">没想到你能看到这，祝你天天开心鸭。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'BzkFs8ErTBnicpxJ4l76vSEF-MdYXbMMI',
+      appKey: 'I0qBKHuP5pbzbWWnG0f3sxR4',
+      placeholder: '在昵称处输入QQ号即可留言！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/gh/xingjiahui/modify@v1.1.0/valine/valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

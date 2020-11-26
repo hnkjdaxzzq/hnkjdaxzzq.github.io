@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>对象导论 | zhiqin's Blog</title><meta name="keywords" content="java"><meta name="author" content="肤浅的羊,1394266081@qq.com"><meta name="copyright" content="肤浅的羊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Java学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象导论">
+<meta property="og:url" content="https://blog.zhiqin.xyz/2020/11/26/%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/index.html">
+<meta property="og:site_name" content="zhiqin&#39;s Blog">
+<meta property="og:description" content="Java学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/7e9646b7aa95bcb98c1d7ab779d481b6.png">
+<meta property="article:published_time" content="2020-11-26T11:09:32.000Z">
+<meta property="article:modified_time" content="2020-11-26T14:52:48.784Z">
+<meta property="article:author" content="肤浅的羊">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/7e9646b7aa95bcb98c1d7ab779d481b6.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.zhiqin.xyz/2020/11/26/%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-26 22:52:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/custom.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/footer.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/plug1ns.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xingjiahui/modify/pace/themes/pink/pace-theme-flash.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/flink.css"><meta name="generator" content="Hexo 5.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/22/c5885260b698d2a5e1f4d74336a844fb.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 图床and相册</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="http://img.zhiqin.xyz/"><i class="fa-fw fas fa-camera-retro"></i><span> 图床</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/log/"><i class="fa-fw fas fa-comment"></i><span> 说说页面</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/7e9646b7aa95bcb98c1d7ab779d481b6.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zhiqin's Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 图床and相册</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="http://img.zhiqin.xyz/"><i class="fa-fw fas fa-camera-retro"></i><span> 图床</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/log/"><i class="fa-fw fas fa-comment"></i><span> 说说页面</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">对象导论</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-26T11:09:32.000Z" title="发表于 2020-11-26 19:09:32">2020-11-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-26T14:52:48.784Z" title="更新于 2020-11-26 22:52:48">2020-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java%E5%AD%A6%E4%B9%A0/">Java学习</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>25分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>“我们之所以将自然界分解，组织成各种概念，并按其含义分类，主要是因为我们是整个口语交流社会共同遵守的协定的参与者，这个协定以语言的形式固定下来……除非赞成这个协定中规定的有关语言信息的组织和分类，否则我们根本无法交谈。”</p>
+<p>​                                                               ——Benjamin Lee Whorf （1897-1941）</p>
+</blockquote>
+<h2 id="1-1-抽象过程"><a href="#1-1-抽象过程" class="headerlink" title="1.1 抽象过程"></a>1.1 抽象过程</h2><p>​    所有编程语言都提供<strong>抽象机制</strong>。可以认为，人们所能够解决的问题的复杂性直接取决于抽象的类型和质量。 ”汇编语言是对底层机器的轻微抽象。接着出现的许多所谓“命令式”语言（如FORTRAN、BASIC、C等）都是对汇编语言的抽象。这些语言在汇编语言基础上有了大幅的改进，但是它们所作的主要抽象仍要求在解决问题 时要基于计算机的结构，而不是基于所要解决的问题的结构来考虑。</p>
+<p>​    这些语言在汇编语言基础上有了大幅的改进，但是它们所作的主要抽象仍要求在解决问题 时要基于计算机的结构，而不是基于所要解决的问题的结构来考虑。程序员必须建立起在机器 模型（位于“解空间”内，这是你对问题建模的地方，例如计算机）和实际待解问题的模型 （位于“问题空间”内，这是问题存在的地方，例如一项业务）之间的关联。建立这种映射是费 力的，而且这不属于编程语言所固有的功能，这使得程序难以编写，并且维护代价高昂，同时也产生了作为副产物的整个“编程方法”行业。</p>
+<p>​    另一种对机器建模的方式就是只针对待解问题建模。早期的编程语言，如LISP和APL,都 选择考虑世界的某些特定视图（分别对应于“所有问题最终都是列表”或者“所有问题都是算 法形式的”）。PROLOG则将所有问题都转换成决策链。此外还产生了基于约束条件编程的语言和专门通过对图形符号操作来实现编程的语言（后者被证明限制性过强）。这些方式对于它们所 要解决的特定类型的问题都是不错的解决方案，但是一旦超出其特定领域，它们就力不从心了。</p>
+<p>​    Alan Kay曾经总结了第一个成功的面向对象语言、同时也是Java所基于的语言之一的 Smalltalk的五个基本特性，这些特性表现了一种纯粹的面向对象程序设计方式：</p>
+<ul>
+<li><p>1）<strong>万物皆为对象</strong>。将对象视为奇特的变量，它可以存储数据，除此之外，你还可以要求它 ,在自身上执行操作。理论上讲，你可以抽取待求解问题的任何概念化构件（狗、建筑物、服务等），将其表示为程序中的对象。</p>
+</li>
+<li><p>2）<strong>程序是对象的集合</strong>，它们通过发送消息来告知彼此所要做的。要想请求一个对象，就必 须对该对象发送一条消息。更具体地说，可以把消息想像为对某个特定对象的方法的调用请求。</p>
+</li>
+<li><p>3）<strong>每个对象都有自己的由其他对象所构成的存储</strong>。换句话说，可以通过创建包含现有对象的包的方式来创建新类型的对象。因此，可以在程序中构建复杂的体系，同时将其复杂性隐藏在对象的简单性背后。</p>
+</li>
+<li><p>4）<strong>每个对象都拥有其类型</strong>。按照通用的说法，“每个对象都是某个类（class）的一个实例 （instance）w,这里“类”就是“类型”的同义词。每个类最重要的区别于其他类的特性就是 “可以发送什么样的消息给它。</p>
+</li>
+<li><p>5）<strong>某一特定类型的所有对象都可以接收同样的消息</strong>。这是一句意味深长的表述，你在稍后 便会看到。因为“圆形”类型的对象同时也是“几何形”类型的对象，所以一个“圆形”对象 必定能够接受发送给“几何形”对象的消息。这意味着可以编写与“几何形”交互并自动处理 所有与几何形性质相关的事物的代码。这种可替代性（substitutabiUty是OOP中最强有力的概 念之一。</p>
+<hr>
+<p>​    Booch对对象提出了一个更加简洁的描述：<em>对象具有状态、行为和标识</em>。这意味着每一个对 象都可以拥有内部数据（它们给出了该对象的状态）和方法（它们产生行为），并且每一个对象都可以唯一地与其他对象区分开来，具体说来，就是每一个对象在内存中都有一个唯一的地址。</p>
+</li>
+</ul>
+<h2 id="1-2-每个对象都有一个接口"><a href="#1-2-每个对象都有一个接口" class="headerlink" title="1.2 每个对象都有一个接口"></a>1.2 每个对象都有一个接口</h2><blockquote>
+<p>亚里士多德大概是第一个深入研究类型（type）的哲学家，他曾提出过鱼类和鸟类这样的概 念。所有的对象都是唯一的，但同时也是具有相同的特性和行为的对象所归属的类的一部分。</p>
+</blockquote>
+<p>这种思想被直接应用于第一个面向对象语言Simula-67,它在程序中使用基本关键字**<em>class**</em>来引入新的类型。</p>
+<p>所以，尽管我们在面向对象程序设计中实际上进行的是创建新的数据类型，但事实上所有的面向对象程序设计语言都使用class这个关键词来表示数据类型。当看到类型一词时，可将其作为类来考虑，反之亦然。</p>
+<p>因为类描述了具有相同特性（数据元素）和行为（功能）的对象集合，所以一个类实际上就是一个数据类型，例如所有浮点型数字具有相同的特性和行为集合。二者的差异在于，程序 员通过定义类来适应问题，而不再被迫只能使用现有的用来表示机器中的存储单元的数据类型。可以根据需求，通过添加新的数据类型来扩展编程语言。编程系统欣然接受新的类，并且像对待内置类型一样地照管它们和进行类型检査。</p>
+<p>一旦类被建立，就可以随心所欲地创建类的任意个对象，然后去操作它们，就像它们是存 在于你的待求解问题中的元素一样。事实上，面向对象程序设计的挑战之一，就是在问题空间 囱 的元素和解空间的对象之间创建一对一的映射。</p>
+<p>但是，怎样才能获得有用的对象呢？必须有某种方式产 生对对象的请求，使对象完成各种任务，如完成一笔交易、 在屏幕上画图、打开开关等等。每个对象都只能满足某些请 求，这些请求由对象的接口（interface）所定义，决定接口的 便是类型。以电灯泡为例来做一个简单的比喻（如右图所示）：<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/1463cc0bd62875c955ba1d78cdb34e78.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Light It = <span class="keyword">new</span> Light（）；</span><br><span class="line">It.on（）；</span><br></pre></td></tr></table></figure>
+
+<p>接口确定了对某一特定对象所能发出的请求。但是，在程序中必须有满足这些请求的代码。 这些代码与隐藏的数据一起构成了实现。从过程型编程的观点来看，这并不太复杂。在类型中， 每一个可能的请求都有一个方法与之相关联，当向对象发送请求时，与之相关联的方法就会被 调用。此过程通常被概括为：向某个对象“发送消息”（产生请求），这个对象便知道此消息的 目的，然后执行对应的程序代码。</p>
+<blockquote>
+<p>有些人对此会区别对待，他们认为：类型决定了接口，而类是该接口的一个特定实现。</p>
+</blockquote>
+<p>上例中，类型/类的名称是*<strong>Light,**<em>特定的</em></strong>Light*<strong>对象的名称是**<em>It,</em></strong>可以向**<em>Light**</em>对象发出的请 求是：打开它、关闭它、将它调亮、将它调暗。你以下列方式创建了一个Light对象：定义这个对象的“引用”（It）,然后调用new方法来创建该类型的新对象。为了向对象发送消息，需要声 明对象的名称，并以圆点符号连接一个消息请求。从预定义类的用户观点来看，这些差不多就是用对象来进行设计的全部。</p>
+<h2 id="1-3-每个对象都提供服务"><a href="#1-3-每个对象都提供服务" class="headerlink" title="1.3 每个对象都提供服务"></a>1.3 每个对象都提供服务</h2><p>当正在试图开发或理解一个程序设计时，最好的方法之一就是将对象想像为“服务提供者”。程序本身将向用户提供服务，它将通过调用其他对象提供的服务来实现这一目的。你的目标就是去创建（或者最好是在现有代码库中寻找）能够提供理想的服务来解决问题的一系列对象。</p>
+<p>将对象作为服务提供者看待是一件伟大的简化工具，这不仅在设计过程中非常有用，而且当其他人试图理解你的代码或重用某个对象时，如果他们看出了这个对象所能提供的服务的价值，它会使调整对象以适应其设计的过程变得简单得多。</p>
+<h2 id="1-4-被隐藏得具体实现"><a href="#1-4-被隐藏得具体实现" class="headerlink" title="1.4 被隐藏得具体实现"></a>1.4 被隐藏得具体实现</h2><p>​    将程序开发人员按照角色分为类创建者（那些创建新数据类型的程序员）和客户端程序员（那些在其应用中使用数据类型的类消费者）是大有裨益的。</p>
+<p>​    客户端程序员的目标是收集各种用 来实现快速应用开发的类。类创建者的目标是构建类，这种类只向客户端程序员暴露必需的部分，而隐藏其他部分。为什么要这样呢？因为如果加以隐藏，那么客户端程序员将不能够访问它，这意味着类创建者可以任意修改被隐藏的部分，而不用担心对其他任何人造成影响。被隐藏的部分通常代表对象内部脆弱的部分，它们很容易被粗心的或不知内情的客户端程序员所毁坏，因此将实现隐藏起来可以减少程序bug。</p>
+<p>​    访问控制的第一个存在原因就是让客户端程序员无法触及他们不应该触及的部分一这些部分对数据类型的内部操作来说是必需的，但并不是用户解决特定问题所需的接口的一部分。 这对客户端程序员来说其或是一项服务，因为他们可以很容易地看出哪些东西对他们来说很重要，而哪些东西可以忽略。</p>
+<p>​    访问控制的第二个存在原因就是允许库设计者可以改变类内部的工作方式而不用担心会影响到客户端程序员。例如，你可能为了减轻开发任务而以某种简单的方式实现了某个特定类， 但稍后发现你必须改写它才能使其运行得更快。如果接口和实现可以清晰地分离并得以保护， 那么你就可以轻而易举地完成这项工作。</p>
+<p>Java用三个关键字在类的内部设定边界：*<strong>public**<em>、</em></strong>private, protected*<strong>。这些访问指定词 （access specifier）决定了紧跟其后被定义的东西可以被谁使用。**<em>public</em></strong>表示紧随其后的元素对任 何人都是可用的，而*<strong>private**<em>这个关键字表示除类型创建者和类型的内部方法之外的任何人都不能访问的元素。</em></strong>private*<strong>就像你与客户端程序员之间的一堵砖墙，如果有人试图访问**<em>private</em></strong>成员， 就会在编译时得到错误信息。*<strong>protected**<em>关键字与</em></strong>private*<strong>作用相当，差别仅在于继承的类可以访 问**<em>protected</em></strong>成员，但是不能访问**<em>private**</em>成员。稍后将会对继承进行介绍。</p>
+<p>Java还有一种默认的访问权限，当没有使用前面提到的任何访问指定词时，它将发挥作用。 这种权限通常被称为包访问权限，因为在这种权限下，类可以访问在同一个包（库构件）中的 其他类的成员，但是在包之外，这些成员如同指定了**<em>private**</em>一样。</p>
+<h2 id="1-5-复用具体实现"><a href="#1-5-复用具体实现" class="headerlink" title="1.5 复用具体实现"></a>1.5 复用具体实现</h2><p>一旦类被创建并被测试完，那么它就应该（在理想情况下）代表一个有用的代码单元。事实证明，这种复用性并不容易达到我们所希望的那种程度，产生一个可复用的对象设计需要丰 富的经验和敏锐的洞察力。但是一旦你有了这样的设计，它就可供复用。代码复用是面向对象程序设计语言所提供的最了不起的优点之一。</p>
+<p>最简单地复用某个类的方式就是直接使用该类的一个对象，此外也可以将那个类的一个对象置于某个新的类中。我们称其为“创建一个成员对象”。新的类可以由任意数量、任意类型的其他对象以.任意可以实现新的类中想要的功能的方式所组成。因为是在使用现有的类合成新 的类，所以这种概念被称为组合（composition）,如果组合是动态发生的，那么它通常被称为 聚合（aggregation）.组合经常被视为“has-a” （拥有）关系，就像我们常说的“汽车拥有引擎” 一样。</p>
+<p>​    组合带来了极大的灵活性。新类的成员对象通常都被声明为**<em>private,**</em>使得使用新类的客户 端程序员不能访问它们。这也使得你可以在不干扰现客户端代码的情况下，修改这些成员。 也可以在运行时修改这些成员对象，以实现动态修改程序的行为。下面将要讨论的继承并不具 国 备这样的灵活性，因为编译器必须对通过继承而创建的类施加编译时的限制。</p>
+<h2 id="1-6-继承"><a href="#1-6-继承" class="headerlink" title="1.6 继承"></a>1.6 继承</h2><p>对象这种观念，本身就是十分方便的工具，使得你可以通过概念将数据和功能封装到一起, 因此可以对问题空间的观念给出恰当的表示，而不用受制于必须使用底层机器语言。这些概念 用关键字**<em>class**</em>来表示，它们形成了编程语言中的基本单位。</p>
+<p>遗憾的是，这样做还是有很多麻烦：在创建了一个类之后，即使另一个新类与其具有相似的 功能，你还是得重新创建一个新类。如果我们能够以现有的类为基础，复制 它，然后通过添加和修改这个副本来创建新类那就要好多了。通过继承便可 以达到这样的效果，不过也有例外，当源类（被称为基类、超类或父类）发生变动时，被修改的“副本”（被称为导出类、继承类或子类）也会反映出这些变动。</p>
+<p>​    类型不仅仅只是描述了作用于一个对象集合上的约束条件，同时还有与其他类型之间的关系。两个类型可以有相同的特性和行为，但是其中一个类型可能比另一个含有更多的特性，并且可以处理更多的消息（或以不同的方式来处理消息）。继承使用基类型和导出类型的概念表示了这种类型之间的相似性。一个基类型包含其所有导出类型所共享的特性和行为。可以创建一个基类型来表示系统中某些对象的核心概念，从基类型中导出其他类型，来表示此核心可以被实现的各种不同方式。</p>
+<p>​    以垃圾回收机为例，它用来归类散落的垃圾。“垃圾”是基类型，毎一件垃圾都有重最、价值等特性，可以被切碎、熔化或分解。在此基础上，可以通过添加额外的特性（例如瓶子有颜 色）或行为（例如铝罐可以被压碎，铁罐可以被磁化）导出更具体的垃圾类型。此外，某些行为可能不同（例如纸的价值取决于其类型和状态）。可以通过使用继承来构建一个类型层次结构, 以此来表示待求解的某种类型的问题。</p>
+<p>​    第二个例子是经典的几何形的例子，这在计算机辅助设计系统或游戏仿真系统中可能被用到。 基类是几何形，毎一个几何形都具有尺寸、颜色、位置等，同时每一个几何形都可以被绘制、擦除、移动和着色等。在此基础上，可以导出（继承出）具体的几何形状——圆形、正方形、三角形等——每一种都具有额外的特性和行为，例如某些形状可以被翻转。某些行为可能并不相同，例如 计算几何形状的面积。类型层次结构同时体现了几何形状之间的相似性和差异性。</p>
+<p>​    当继承现有类型时，也就创造了新的类型。这个新的类型不仅包括现有类型的所有成员（尽管**<em>private**</em>成员被隐藏了起来，并且不可访问），而且更重要的是它复制了基类的接口。也就是说,所有可以发送给基类对象的消息同时也可以发送给导出类对象。由于通过发送给类的消息的类型 可知类的类型，所以这也就意味着导出类与基类具有相同的类型。在前面的例子中，“一个圆形也 就是一个几何形”。通过继承而产生的类型等价性是理解面向对象程序设计方法内涵的重要门槛。</p>
+<p>有两种方法可以使基类与导出类产生差异。第 一种方法非常直接：直接在导出类中添加新方法。 这些新方法并不是基类接口的一部分。这意味着基类不能直接满足你的所有需求，因此必需添加更多的方法。这种对继承简单而基本的使用方式，有时 对问题来说确实是一种完美的解决方式。但是，应该仔细考虑是否存在基类也需要这些额外方法的可 能性。这种设计的发现与迭代过程在面向对象程序 设计中会经常发生（如右中图所示）。</p>
+<p>虽然继承有时可能意味着在接口中添加新方 法（尤其是在以**<em>extends**</em>关键字表示继承的Java中）， 但并非总需如此。第二种也是更重要的一种使导出类和基类之间产生差异的方法是改变现有基类的方法的行为，这被称之为覆盖（overriding）那个方法（如右下图所示）。要想覆盖某个方法，可以直接在导出类中创建该方法的新定义即可。你可以说此时，我正在使用相同的接口方法，但是我想在新类型中做些不同的事情。”</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/5c9a9cf54c227026c4b877493389d75d.png"></p>
+<h3 id="1-6-1-“是一个”与“像是一个”关系"><a href="#1-6-1-“是一个”与“像是一个”关系" class="headerlink" title="1.6.1 “是一个”与“像是一个”关系"></a>1.6.1 “是一个”与“像是一个”关系</h3><p>·对于继承可能会引发某种争论：继承应该只覆盖基类的方法（而并不添加在基类中没有的 新方法）吗？如果这样做，就意味着导出类和基类是完全相同的类型，因为它们具有完全相同 的接口。结果可以用一个导出类对象来完全替代一个基类对象。这可以被视为纯粹替代，通常 .称之为替代原则。在某种意义上，这是一种处理继承的理想方式。我们经常将这种情况下的基 类与导出类之间的关系称为is-a （是一个）关系，因为可以说“一个圆形就是一个几何形状二 判断是否继承,就是要确定是否可以用is-a来描述类之间的关系，并使之具有实际意义。</p>
+<p>有时必须在导出类型中添加新的接口元素，这样也就扩展了接口。这个新的类型仍然可以替代基类，但是这种替代并不完美，因为基类无法访问新添加的方法。这种情况我们可以描述is-like-a （像是一个）关系。新类型具有旧类型的接口，但是它还包含其他方法，所以不能说它们完全相同。以空调为例，假设房子里已经布线安装好了所有的冷气设备的控制器，也就是说，房子具备了让你控制冷气设备的接口。想像一下，如果空调坏了，你用一个既能制冷又能 制热的热力泵替换了它，那么这个热力泵就is∙like-a空调，但是它可以做更多的事。因为房子的控制系统被设计为只能控制冷气设备，所以它只能和新对象中的制冷部分进行通信。尽管新对象的接口已经被扩展了，但是现有系统除了原来接口之外，对其他东西一无所知。</p>
+<p>​    当然，在看过这个设计之后，很显然会发现，制冷系统这个基类不够一般化，应该将其更 名为“温度控制系统”，使其可以包括制热功能，这样我们就可以套用替R原则了。这张图说明 了在真实世界中进行设计时可能会发生的事情。</p>
+<p>当你看到替代原则时，很容易会认为这种方式（纯粹替代）是唯一可行的方式，而且事实上，用这种方式设计是很好的。但是你会时常发现，同样显然的是你必须在导出类的接口中添加新方法。只要仔细审视，两种方法的使用场合应该是相当明显的。</p>
+<h2 id="1-7-伴随多态的可互换对象"><a href="#1-7-伴随多态的可互换对象" class="headerlink" title="1.7 伴随多态的可互换对象"></a>1.7 伴随多态的可互换对象</h2><p>​    在处理类型的层次结构时，经常想把一个对象不当作它所属的特定类型来对待，而是将其当作其基类的对象来对待。这使得人们可以编写出不依赖于特定类型的代码。在“几何形”的 例子中，方法操作的都是泛化（generic）的形状，而不关心它们是圆形、正方形、三角形还是. 其他什么尚未定义的形状。所有的几何形状都可以被绘制、擦除和移动，所以这些方法都是直接对一个几何形对象发送消息；它们不用担心对象将如何处理消息。</p>
+<p>​    但是，在试图将导出类型的对象当作其泛化基类型对象来看待时（把圆形看作是几何形， 把自行车看作是交通工具，把四鹤看作是鸟等等），仍然存在一个问题。如果某个方法要让泛化 几何形状绘制自己、让泛化交通工具行驶，或者让泛化的鸟类移动，那么编译器在编译时是不可能知道应该执行哪一段代码的。这就是关键所在：当发送这样的消息时，程序员并不想知道哪一段代码将被执行绘图方法可以被等同地应用于圆形、正方形、三角形，而对象会依据自 身的具体类型来执行恰当的代码。</p>
+<p>​    如果不需要知道哪一段代码会被执行，那么当添加新的子类型时，不需要更改调用它的方 法，它就能够执行不同的代码。因此，编译器无法精确地了解哪一段代码将会被执行，那么它该怎么办呢？例如，在下面的图中，*<strong>BirdController**<em>对象仅仅处理泛化的</em></strong>Bird*<strong>对象，而不了解它们的确切类型。从**<em>BirdController</em></strong>的角度看，这么做非常方便，因为不需要编写特别的代码来判 定要处理的*<strong>Bird**<em>对象的确切类型或其行为。当</em></strong>move（）*<strong>方法被调用时，即便忽略**<em>Bird</em></strong>的具体类型， 也会产生正确的行为*<strong>Goose*** （鹅）走、飞或游泳，*</strong>Penguin*** （企鹅）走或游泳,那么，这是如何发生的呢？</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/bad9b9489128c5c2d21afd716ca87fb7.png"></p>
+<p><em>这个问题的答案，也是面向对象程序设计的最重要的妙诀：编译•器不可能产生传统意义上 的函数调用。一个非面向对象编程的编译器产生的函数调用会引起所谓的前期绑定，这个术语 你可能以前从未听说过，可能从未想过函数调用的其他方式。这么做意味着编译器将产生对一 个具体函数名字的调用，而运行时将这个调用解析到将要被执行的代码的绝对地址。然而在 OOP中，程序直到运行时才能够确定代码的地址，所以当消息发送到一个泛化对象时，必须采 用其他的机制。</em></p>
+<p>为了解决这个问题，面向对象程序设计语言使用了后期绑定的概念。当向对象发送消息时被调用的代码直到运行时才能确定。编译器确保被调用方法的存在，并对调用参数和返回值 执行类型检査（无法提供此类保证的语言被称为是弱类型的），但是并不知道将被执行的确切 代码。</p>
+<p>为了执行后期绑定，Java使用一小段特殊的代码来替代绝对地址调用。这段代码使用在对 象中存储的信息来计算方法体的地址（这个过程将在第8章中详述）。这样，根据这一小段代码的内容，每一个对象都可以具有不同的行为表现。当向一个对象发送消息时，该对象就能够知 .道对这条消息应该做些什么。</p>
+<p>在某些语言中，必须明确地声明希望某个方法具备后期绑定属性所带来的灵活性（C++是 使用**<em>virtual**</em>关键字来实现的）。在这些语言中，方法在默认情况下不是动态绑定的。而在Java中，动态绑定是默认行为，不需要添加额外的关键字来实现多态。</p>
+<p>​    再来看看几何形状的例子。整个类族(其中所有的类都基于相同的一致接口)在本章前面 已有图示。为了说明多态，我们要编写一段代码，它忽略类型的具体细节，仅仅和基类交互。 这段代码和具体类型信息是分离的(decoupled),这样做使代码编写更为简单，也更易于理解。 而且，如果通过继承机制添加一个新类型，例如*<strong>Hexagon*** (六边形)，所编写的代码对*</strong>Shape*** (几何形)的新类型的处理与对已有类型的处理会同样出色。正因为如此，可以称这个程序是可扩展的。</p>
+<p>如果用Java来编写一个方法(后面很快你就会学习如何编写):</p>
+<p><strong><em>void doSomething(Shape shape) (</em></strong></p>
+<p><strong><em>shape.erase();</em></strong></p>
+<p><strong><em>∕∕ …</em></strong></p>
+<p><strong><em>shape.draw();</em></strong></p>
+<p><strong><em>}</em></strong></p>
+<p>这个方法可以与任何*<strong>Shape***对话，因此它是独立于任何它要绘制和擦除的对象的具体类型的。 如果程序中其他部分用到了 *</strong>doSomething()***方法：</p>
+<p><strong><em>Circle circle = new Circle();</em></strong></p>
+<p><strong><em>Triangle triangle = new Triangle();</em></strong></p>
+<p><strong><em>Line line = new Line():</em></strong></p>
+<p><strong><em>doSomething(ci rcle):</em></strong></p>
+<p><strong><em>doSomething(tri angle);</em></strong></p>
+<p><strong><em>doSomething(line):</em></strong></p>
+<p>对**<em>doSomething()**</em>的调用会自动地正确处理，而不管对象的确切类型。 这是一个相当令人惊奇的诀窍。看看下面这行代码：</p>
+<p><strong><em>doSomething(ci rcle):</em></strong></p>
+<p>当*<strong>Circle**<em>被传入到预期接收</em></strong>Shape*<strong>的方法中，究竟会发生什么。由于**<em>Circle</em></strong>可以*<strong>doSomethingO*** 看作是*</strong>Shape,<strong><em>也就是说，</em></strong>doSomething()<strong><em>可以发送给</em></strong>Shape***的任何消息，Circle都可以接收，那 .叵|么，这么做是完全安全且合乎逻辑的。</p>
+<p>把将导出类看做是它的基类的过程称为向上转型(upcasting)o转型(cast)这个名称的灵</p>
+<p>感来自于模型铸造的塑模动作I而向上(up)这 个词来源于继承图的典型布局方式：通常基类在 顶部，而导出类在其下部散开。因此，转型为一 个基类就是在继承图中向上移动，即“向上转型” (如右图所示)。</p>
+<p>一个面向对象程序肯定会在某处包含向上转 型，因为这正是将自己从必须知道确切类型中解</p>
+<p>放出来的关健。让我们再看看**<em>doSomethingO**</em>中的代码:</p>
+<p><strong><em>shape.erase();</em></strong></p>
+<p><strong><em>// …</em></strong></p>
+<p><strong><em>shape.draw();</em></strong></p>
+<p>注意这些代码并不是说“如果是*<strong>Circle,**<em>请这样做：如果是</em></strong>Square,<strong><em>请那样做••••••”。如果编写了那种检査</em></strong>Shape*<strong>所有实际可能类型的代码，那么这段代码肯定是杂乱不堪的，而且在每次添加了Shape的新类型之后都要去修改这段代码。这里所要表达的意思仅仅是“你是一个**<em>Shape,</em></strong> 我知道你可以*<strong>erase()**<em>。和</em></strong>draw()***你自己，那么去做吧，但是要注意细节的正确性。”</p>
+<p><strong><em>doSomething()</em></strong>的代码给人印象深刻之处在于，不知何故，它总是做了该做的。调用*<strong>Circle**<em>的</em></strong>draw*<strong>。方法所执行的代码与调用**<em>Square</em></strong>或*<strong>Line**<em>的</em></strong>draw()<strong>*法所执行的代码是不同的，而且当 *</strong>dmw()<strong><em>消息被发送给一个匿名的</em></strong>Shape*<strong>时，也会基于该**<em>Shape</em></strong>的实际类型产生正确的行为。这相 当神奇，因为就像在前面提到的，当Java编译器在编译*<strong>doSomething()**<em>的代码时，并不能确切知 道</em></strong>doSomething()<strong><em>要处理的确切类型。所以通常会期望它的编译结果是调用基类</em></strong>Shape*<strong>的**<em>erase</em></strong>。</p>
+<p>和*<strong>draw()**<em>版本，而不是具体的</em></strong>Circle. Square*<strong>或**<em>Line</em></strong>的相应版本。正是因为多态才使得事情总是能够被正确处理。编译器和运行系统会处理相关的细节，你需要马上知道的只是事情会发生， 更重要的是怎样通过它来设计。当向一个对象发送消息时，即使涉及向上转型，该对象也知道要执行什么样的正确行为。</p>
+<h2 id="1-8-单根继承结构"><a href="#1-8-单根继承结构" class="headerlink" title="1.8 单根继承结构"></a>1.8 单根继承结构</h2><p>​    在OOP中，自C++面世以来就已变得非常瞩目的一个问题就是，是否所有的类最终都继承 自单一的基类。在Java中(事实上还包括除C++以外的所有OOP语言)，答案是yes,这个终极基 类的名字就是**<em>Object**</em>。事实证明，单根继承结构带来了很多好处。</p>
+<p>在单根继承结构中的所有对象都具有一个共用接口，所以它们归根到底都是相同的基本类 型。另一种(C++所提供的)结构是无法确保所有对象都属于同一个基本类型。从向后兼容的 角度看，这么做能够更好地适应C模型，而且受限较少，但是当要进行完全的面向对象程序设计 时，则必须构建自己的继承体系，使得它可以提供其他OOP语言内置的便利。并且在所获得的 任何新类库中，总会用到一些不兼容的接口，需要花力气(有可能要通过多重继承)来使新接 口融入你的设计之中。这么做来换取C++额外的灵活性是否值得呢？如果需要的话——如果在C 上面投资巨大，这么做就很有价值。如果是刚刚从头开始那么像Java这样的选择通常会有更 髙的生产率。    、</p>
+<p>单根继承结构保证所有对象都具备某些功能。由此你知道，在你的系统中你可以在每个对象 上执行某些基本操作。所有对象都可以很容易地在堆上创建，而参数传递也得到了极大的简化。</p>
+<p>单根继承结构使垃圾回收器的实现变得容易得多，而垃圾回收器正是Java相对C++的重要改 进之一。由于所有对象都保证具有其类型信息，因此不会因无法确定对象的类型而陷入僵局。 这对于系统级操作(如异常处理)显得尤其重要，并且给编程带来了更大的灵活性。</p>
+<h2 id="1-9-容器"><a href="#1-9-容器" class="headerlink" title="1.9 容器"></a>1.9 容器</h2><h3 id="1-9-1-参数化类型"><a href="#1-9-1-参数化类型" class="headerlink" title="1.9.1 参数化类型"></a>1.9.1 参数化类型</h3><h2 id="1-10-对象的创建和生命期"><a href="#1-10-对象的创建和生命期" class="headerlink" title="1.10 对象的创建和生命期"></a>1.10 对象的创建和生命期</h2><h2 id="1-11-异常处理：处理错误"><a href="#1-11-异常处理：处理错误" class="headerlink" title="1.11 异常处理：处理错误"></a>1.11 异常处理：处理错误</h2><h2 id="1-12-并发编程"><a href="#1-12-并发编程" class="headerlink" title="1.12 并发编程"></a>1.12 并发编程</h2><h2 id="1-13-Java与Internet"><a href="#1-13-Java与Internet" class="headerlink" title="1.13 Java与Internet"></a>1.13 Java与Internet</h2><h3 id="1-13-1-客户端编程"><a href="#1-13-1-客户端编程" class="headerlink" title="1.13.1 客户端编程"></a>1.13.1 客户端编程</h3><h3 id="1-13-2-服务器端编程"><a href="#1-13-2-服务器端编程" class="headerlink" title="1.13.2 服务器端编程"></a>1.13.2 服务器端编程</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:1394266081@qq.com">肤浅的羊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.zhiqin.xyz/2020/11/26/%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/">https://blog.zhiqin.xyz/2020/11/26/%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.zhiqin.xyz" target="_blank">zhiqin's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/7e9646b7aa95bcb98c1d7ab779d481b6.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img/2020/11/19/c02409766fa2a83112a3113209f01689.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软件工程第五章</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/22/c5885260b698d2a5e1f4d74336a844fb.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">肤浅的羊</div><div class="author-info__description">欢迎来到我的博客，有任何疑问可以到“留言板”提问！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1394266081&amp;site=qq&amp;menu=yes"><i class="fab fa-qq"></i><span>联系博主</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hnkjdaxzzq" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1394266081@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">努力让自己的博客丰富起来。</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%8A%BD%E8%B1%A1%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">1.1 抽象过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%AF%8F%E4%B8%AA%E5%AF%B9%E8%B1%A1%E9%83%BD%E6%9C%89%E4%B8%80%E4%B8%AA%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.</span> <span class="toc-text">1.2 每个对象都有一个接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%AF%8F%E4%B8%AA%E5%AF%B9%E8%B1%A1%E9%83%BD%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text">1.3 每个对象都提供服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E8%A2%AB%E9%9A%90%E8%97%8F%E5%BE%97%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">1.4 被隐藏得具体实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E5%A4%8D%E7%94%A8%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text">1.5 复用具体实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E7%BB%A7%E6%89%BF"><span class="toc-number">6.</span> <span class="toc-text">1.6 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-%E2%80%9C%E6%98%AF%E4%B8%80%E4%B8%AA%E2%80%9D%E4%B8%8E%E2%80%9C%E5%83%8F%E6%98%AF%E4%B8%80%E4%B8%AA%E2%80%9D%E5%85%B3%E7%B3%BB"><span class="toc-number">6.1.</span> <span class="toc-text">1.6.1 “是一个”与“像是一个”关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-%E4%BC%B4%E9%9A%8F%E5%A4%9A%E6%80%81%E7%9A%84%E5%8F%AF%E4%BA%92%E6%8D%A2%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text">1.7 伴随多态的可互换对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-%E5%8D%95%E6%A0%B9%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84"><span class="toc-number">8.</span> <span class="toc-text">1.8 单根继承结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-%E5%AE%B9%E5%99%A8"><span class="toc-number">9.</span> <span class="toc-text">1.9 容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-1-%E5%8F%82%E6%95%B0%E5%8C%96%E7%B1%BB%E5%9E%8B"><span class="toc-number">9.1.</span> <span class="toc-text">1.9.1 参数化类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E7%94%9F%E5%91%BD%E6%9C%9F"><span class="toc-number">10.</span> <span class="toc-text">1.10 对象的创建和生命期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-11-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%9A%E5%A4%84%E7%90%86%E9%94%99%E8%AF%AF"><span class="toc-number">11.</span> <span class="toc-text">1.11 异常处理：处理错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-12-%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-number">12.</span> <span class="toc-text">1.12 并发编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-13-Java%E4%B8%8EInternet"><span class="toc-number">13.</span> <span class="toc-text">1.13 Java与Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-13-1-%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%96%E7%A8%8B"><span class="toc-number">13.1.</span> <span class="toc-text">1.13.1 客户端编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-13-2-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%BC%96%E7%A8%8B"><span class="toc-number">13.2.</span> <span class="toc-text">1.13.2 服务器端编程</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/" title="对象导论"><img data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img@latest/2020/11/26/7e9646b7aa95bcb98c1d7ab779d481b6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="对象导论"/></a><div class="content"><a class="title" href="/2020/11/26/%E5%AF%B9%E8%B1%A1%E5%AF%BC%E8%AE%BA/" title="对象导论">对象导论</a><time datetime="2020-11-26T11:09:32.000Z" title="发表于 2020-11-26 19:09:32">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/" title="软件工程第五章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/hnkjdaxzzq/img/2020/11/19/c02409766fa2a83112a3113209f01689.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第五章"/></a><div class="content"><a class="title" href="/2020/11/17/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%94%E7%AB%A0/" title="软件工程第五章">软件工程第五章</a><time datetime="2020-11-17T08:34:42.000Z" title="发表于 2020-11-17 16:34:42">2020-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/" title="软件工程第三章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/15/169f9b425269503a068743d5a0e2511f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第三章"/></a><div class="content"><a class="title" href="/2020/11/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%89%E7%AB%A0/" title="软件工程第三章">软件工程第三章</a><time datetime="2020-11-15T06:23:21.000Z" title="发表于 2020-11-15 14:23:21">2020-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0/" title="软件工程第二章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/08/28/353e81fa38e6354138f58b369b56a728.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第二章"/></a><div class="content"><a class="title" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0/" title="软件工程第二章">软件工程第二章</a><time datetime="2020-11-14T10:02:08.000Z" title="发表于 2020-11-14 18:02:08">2020-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="软件工程第一章"><img data-lazy-src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN@latest/2020/11/14s/107ab635d1a7c8b2dee6ed63f0927527.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件工程第一章"/></a><div class="content"><a class="title" href="/2020/11/14/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0/" title="软件工程第一章">软件工程第一章</a><time datetime="2020-11-14T02:04:07.000Z" title="发表于 2020-11-14 10:04:07">2020-11-14</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By 肤浅的羊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">没想到你能看到这，祝你天天开心鸭。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    window.valine = new Valine({
+      el: '#vcomment',
+      appId: 'BzkFs8ErTBnicpxJ4l76vSEF-MdYXbMMI',
+      appKey: 'I0qBKHuP5pbzbWWnG0f3sxR4',
+      placeholder: '在昵称处输入QQ号后会自动读取头像等信息，即可留言！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      master: 'https://blog.zhiqin.xyz',
+      friends: 'https://plushine.cn'.split(',')
+    });
+    if ('nick,mail') { valine.config.requiredFields= 'nick,mail'.split(',') }
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/gh/xingjiahui/modify@v1.1.0/valine/valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
